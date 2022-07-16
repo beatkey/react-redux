@@ -1,7 +1,15 @@
+import {useSelector} from "react-redux";
+
+import Header from "./Header";
+import User from "./containers/user";
+
 export default function App() {
+    const {theme} = useSelector(state => state.theme)
+
     return (
-        <h1 className="text-3xl font-bold underline">
-            Hello world!
-        </h1>
+        <main className={theme}>
+            <Header/>
+            <User/>
+        </main>
     )
 }
