@@ -17,7 +17,6 @@ const slice = createSlice({
             state.loggedIn = false
         },
         updateUser: (state, action) => {
-            console.log(action.payload)
             state.name = action.payload.name
             state.surname = action.payload.surname
         }

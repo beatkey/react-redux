@@ -4,6 +4,8 @@ import {useSelector, useDispatch} from "react-redux";
 import {TextField, Button} from "@mui/material";
 import {updateUser} from "../../stores/auth";
 
+import {__} from "../../Helpers";
+
 export default function User() {
     const dispatch = useDispatch()
     const {loggedIn} = useSelector(state => state.auth)
@@ -31,7 +33,7 @@ export default function User() {
                     </form>
                     :
                     <div className="text-center text-xl">
-                        you have to login
+                        {__("you have to login")}
                     </div>
             }
         </>
