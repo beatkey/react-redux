@@ -1,11 +1,21 @@
-import {useSelector} from "react-redux";
+import {useSelector} from 'react-redux';
 
-const __ = key => { // localization
+const files = {
+    'tr': require(`./lang/tr.json`),
+    'en': require(`./lang/en.json`)
+};
+
+const useLang = key => { // localization
     const {activeLanguage} = useSelector(state => state.language);
-    const Lang = require(`./lang/${activeLanguage}.json`)
-    return Lang[key];
-}
+    const Lang = files[activeLanguage]
+
+    function t(key){
+        return Lang[key];
+    }
+
+    return t;
+};
 
 export {
-    __
-}
+    useLang,
+};

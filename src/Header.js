@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {__} from "./Helpers";
+import {useLang} from "./Helpers";
 
 import {useDispatch, useSelector} from "react-redux";
 import {changeTheme} from "./stores/theme";
@@ -12,6 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 
 
 export default function Header() {
+    const t = useLang();
     const dispatch = useDispatch()
     const {loggedIn, name, surname} = useSelector(state => state.auth)
     const {activeLanguage, languages} = useSelector(state => state.language)
@@ -80,11 +81,11 @@ export default function Header() {
                         </div>
                         :
                         <div className="mr-2">
-                            <Button onClick={loginButton} variant="contained">{__("login")}</Button>
+                            <Button onClick={loginButton} variant="contained">{t("login")}</Button>
                         </div>
                 }
                 <div className="mr-2">
-                    <Button onClick={themeButton} variant="contained">{__("dark_mode")}</Button>
+                    <Button onClick={themeButton} variant="contained">{t("dark_mode")}</Button>
                 </div>
             </div>
         </div>
